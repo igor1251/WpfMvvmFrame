@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "yCiHmLsI6MSC9Y+X8TrBVpfzLCJ9u4XNQRHHsTW6NdsgGyeSyQw8kqfdymTOXmVPgEdNUFWlvB0o7AvtSUxM1g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\babichev.i\\Documents\\GitHub\\WpfMvvmFrame\\WpfMvvmFrame\\WpfMvvmFrame\\WpfMvvmFrame.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\babichev.i\\.nuget\\packages\\communitytoolkit.mvvm\\7.1.2\\communitytoolkit.mvvm.7.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,54 @@
+﻿<Window x:Class="WpfMvvmFrame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMvvmFrame" 
+        xmlns:viewmodels="clr-namespace:WpfMvvmFrame.ViewModels"
+        mc:Ignorable="d"
+        Title="CommunityToolkit.Mvvm Demo"
+        Width="600"
+        SizeToContent="Height">
+    <Window.DataContext>
+        <viewmodels:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0" Content="Привязка string" Margin="5 5 5 5" VerticalAlignment="Center" />
+        <Label Grid.Row="1" Grid.Column="0" Content="Привязка decimal" Margin="5 5 5 5" VerticalAlignment="Center" />
+        <Label Grid.Row="2" Grid.Column="0" Content="Привязка с маской" Margin="5 5 5 5" VerticalAlignment="Center" />
+        <Label Grid.Row="3" Grid.Column="0" Content="Поле с контролем ввода (доступен только ввод числа)" Margin="5 5 5 5" VerticalAlignment="Center" />
+        <Label Grid.Row="4" Grid.Column="0" Content="Привязка команды на кнопку" Margin="5 5 5 5" VerticalAlignment="Center" />
+        <Label Grid.Row="5" Grid.Column="0" Content="Управление активностью кнопки через команду" Margin="5 5 5 5" VerticalAlignment="Center" />
+        <Label Grid.Row="6" Grid.Column="0" Content="Открытие дочернего окна" Margin="5 5 5 5" VerticalAlignment="Center" />
+        <!--<Label Grid.Row="8" Grid.Column="0" Content="DialogResult через ViewModel" Margin="5 5 5 5" VerticalAlignment="Center" />-->
+
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" VerticalContentAlignment="Center" Text="{Binding StringBinding, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" VerticalContentAlignment="Center" Text="{Binding DecimalBinding, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" VerticalContentAlignment="Center" Text="{Binding MaskedBinding, Mode=TwoWay, StringFormat={}{0:#(###) ###-####}}" />
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" VerticalContentAlignment="Center" Text="{Binding RegexControlledBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Content="Очистить поля для ввода" Grid.Row="4" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" Command="{Binding ClearFieldsCommand}" />
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button Content="Изменить состояние" Grid.Column="0" Margin="5 5 5 5" VerticalAlignment="Center" Command="{Binding ChangeButtonConditionCommand}" />
+            <Button Content="Нажми меня!" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" IsEnabled="{Binding CanClick}" Command="{Binding ShowGreetingCommand}" />
+        </Grid>
+        <Button Content="Открыть дочернее окно" Grid.Row="6" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" Command="{Binding DemostrateChildWindowCommand}" />
+    </Grid>
+</Window>

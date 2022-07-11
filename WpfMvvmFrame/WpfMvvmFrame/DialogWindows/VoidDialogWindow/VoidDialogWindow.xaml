@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfMvvmFrame.DialogWindows.VoidDialogWindow.VoidDialogWindow"
+        x:Name="dialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMvvmFrame.DialogWindows.VoidDialogWindow"
+        xmlns:datatypes="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Height="157" Width="331"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterOwner">
+    <Window.DataContext>
+        <local:VoidDialogWindowViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Да или нет?" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+        <Button Content="Да" Margin="5 5 5 5" Command="{Binding AcceptCommand}" CommandParameter="{Binding ElementName=dialogWindow}" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" />
+        <Button Content="Нет" Margin="5 5 5 5" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=dialogWindow}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" />
+    </Grid>
+</Window>
