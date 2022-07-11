@@ -24,11 +24,19 @@ namespace WpfMvvmFrame.ViewModels
         void AddStudent()
         {
             WeakReferenceMessenger.Default.Send(new NewStudentMessage(Application.Current.MainWindow, AvailableStudents));
+
+            /*
+             * можно и просто через ShowDialog()
+             * но так можно больше абстрагироваться от того, что происходит внутри вызова 
+             * дочернего окна и от реализации этого окна, плюс, добавляется слушатель 
+             * на результат исполнения вызова
+             */ 
         }
 
         public void Receive(NewStudentMessage message)
         {
-            MessageBox.Show(message.OperationResult);
+            if (!string.IsNullOrEmpty(message.OperationResult))
+                MessageBox.Show(message.OperationResult);
         }
 
         public MainWindowViewModel()
