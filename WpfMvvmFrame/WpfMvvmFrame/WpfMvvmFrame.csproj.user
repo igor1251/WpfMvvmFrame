@@ -7,12 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="DialogWindows\VoidDialogWindow\VoidDialogWindow.xaml.cs">
+    <Compile Update="DialogWindows\AddStudent\AddStudentWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="DialogWindows\VoidDialogWindow\VoidDialogWindow.xaml">
+    <Page Update="DialogWindows\AddStudent\AddStudentWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

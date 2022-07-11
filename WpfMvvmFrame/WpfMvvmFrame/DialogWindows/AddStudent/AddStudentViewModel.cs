@@ -6,11 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfMvvmFrame.Models;
 
-namespace WpfMvvmFrame.DialogWindows.VoidDialogWindow
+namespace WpfMvvmFrame.DialogWindows.AddStudent
 {
-    public partial class VoidDialogWindowViewModel : ObservableObject
+    public partial class AddStudentViewModel : ObservableObject
     {
+        [ObservableProperty]
+        Student student = new();
+
         [ICommand]
         void Accept(Window window)
         {
@@ -18,7 +22,7 @@ namespace WpfMvvmFrame.DialogWindows.VoidDialogWindow
         }
 
         [ICommand]
-        void Cancel(Window window)
+        void Decline(Window window)
         {
             window.DialogResult = false;
         }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\babichev.i\Documents\GitHub\WpfMvvmFrame\WpfMvvmFrame\WpfMvvmFrame\App.xaml
-2-1289757335
+21535490515
 
-10429777097
+111758154448
 195-128789810
-DialogWindows\VoidDialogWindow\VoidDialogWindow.xaml;MainWindow.xaml;
+DialogWindows\AddStudent\AddStudentWindow.xaml;MainWindow.xaml;
 
-True
+False
 

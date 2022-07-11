@@ -8,47 +8,35 @@
         mc:Ignorable="d"
         Title="CommunityToolkit.Mvvm Demo"
         Width="600"
-        SizeToContent="Height">
+        Height="500"
+        WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <viewmodels:MainWindowViewModel />
     </Window.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
-        <Label Grid.Row="0" Grid.Column="0" Content="Привязка string" Margin="5 5 5 5" VerticalAlignment="Center" />
-        <Label Grid.Row="1" Grid.Column="0" Content="Привязка decimal" Margin="5 5 5 5" VerticalAlignment="Center" />
-        <Label Grid.Row="2" Grid.Column="0" Content="Привязка с маской" Margin="5 5 5 5" VerticalAlignment="Center" />
-        <Label Grid.Row="3" Grid.Column="0" Content="Поле с контролем ввода (доступен только ввод числа)" Margin="5 5 5 5" VerticalAlignment="Center" />
-        <Label Grid.Row="4" Grid.Column="0" Content="Привязка команды на кнопку" Margin="5 5 5 5" VerticalAlignment="Center" />
-        <Label Grid.Row="5" Grid.Column="0" Content="Управление активностью кнопки через команду" Margin="5 5 5 5" VerticalAlignment="Center" />
-        <Label Grid.Row="6" Grid.Column="0" Content="Открытие дочернего окна" Margin="5 5 5 5" VerticalAlignment="Center" />
-        <!--<Label Grid.Row="8" Grid.Column="0" Content="DialogResult через ViewModel" Margin="5 5 5 5" VerticalAlignment="Center" />-->
-
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" VerticalContentAlignment="Center" Text="{Binding StringBinding, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" VerticalContentAlignment="Center" Text="{Binding DecimalBinding, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" VerticalContentAlignment="Center" Text="{Binding MaskedBinding, Mode=TwoWay, StringFormat={}{0:#(###) ###-####}}" />
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" VerticalContentAlignment="Center" Text="{Binding RegexControlledBinding, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Content="Очистить поля для ввода" Grid.Row="4" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" Command="{Binding ClearFieldsCommand}" />
-        <Grid Grid.Row="5" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <Button Content="Изменить состояние" Grid.Column="0" Margin="5 5 5 5" VerticalAlignment="Center" Command="{Binding ChangeButtonConditionCommand}" />
-            <Button Content="Нажми меня!" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" IsEnabled="{Binding CanClick}" Command="{Binding ShowGreetingCommand}" />
-        </Grid>
-        <Button Content="Открыть дочернее окно" Grid.Row="6" Grid.Column="1" Margin="5 5 5 5" VerticalAlignment="Center" Command="{Binding DemostrateChildWindowCommand}" />
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="Choose db file..." />
+            </MenuItem>
+            <MenuItem Header="Close" />
+            <MenuItem Header="About" />
+        </Menu>
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding AvailableStudents}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Surname" Width="*" Binding="{Binding Surname}" />
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Lastname" Width="*" Binding="{Binding Lastname}" />
+                <DataGridTextColumn Header="Date of birth" Width="*" Binding="{Binding DateOfBirth, StringFormat=dd/MM/yyyy}" />
+                <DataGridTextColumn Header="Age" Width="Auto" Binding="{Binding Age}" />
+            </DataGrid.Columns>            
+        </DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+            <Button Content="Add" Width="100" Margin="5 5 5 5" Command="{Binding AddStudentCommand}" />
+        </StackPanel>
     </Grid>
 </Window>

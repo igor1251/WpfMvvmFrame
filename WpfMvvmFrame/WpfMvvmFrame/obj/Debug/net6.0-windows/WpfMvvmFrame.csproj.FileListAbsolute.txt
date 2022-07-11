@@ -22,5 +22,5 @@ C:\Users\babichev.i\Documents\GitHub\WpfMvvmFrame\WpfMvvmFrame\WpfMvvmFrame\obj\
 C:\Users\babichev.i\Documents\GitHub\WpfMvvmFrame\WpfMvvmFrame\WpfMvvmFrame\obj\Debug\net6.0-windows\ref\WpfMvvmFrame.dll
 C:\Users\babichev.i\Documents\GitHub\WpfMvvmFrame\WpfMvvmFrame\WpfMvvmFrame\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\babichev.i\Documents\GitHub\WpfMvvmFrame\WpfMvvmFrame\WpfMvvmFrame\bin\Debug\net6.0-windows\CommunityToolkit.Mvvm.dll
-C:\Users\babichev.i\Documents\GitHub\WpfMvvmFrame\WpfMvvmFrame\WpfMvvmFrame\obj\Debug\net6.0-windows\DialogWindows\VoidDialogWindow\VoidDialogWindow.g.cs
-C:\Users\babichev.i\Documents\GitHub\WpfMvvmFrame\WpfMvvmFrame\WpfMvvmFrame\obj\Debug\net6.0-windows\DialogWindows\VoidDialogWindow\VoidDialogWindow.baml
+C:\Users\babichev.i\Documents\GitHub\WpfMvvmFrame\WpfMvvmFrame\WpfMvvmFrame\obj\Debug\net6.0-windows\DialogWindows\AddStudent\AddStudentWindow.g.cs
+C:\Users\babichev.i\Documents\GitHub\WpfMvvmFrame\WpfMvvmFrame\WpfMvvmFrame\obj\Debug\net6.0-windows\DialogWindows\AddStudent\AddStudentWindow.baml

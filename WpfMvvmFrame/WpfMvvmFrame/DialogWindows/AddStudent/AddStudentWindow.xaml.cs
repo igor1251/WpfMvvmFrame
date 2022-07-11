@@ -12,17 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfMvvmFrame.DialogWindows.VoidDialogWindow
+namespace WpfMvvmFrame.DialogWindows.AddStudent
 {
     /// <summary>
-    /// Логика взаимодействия для VoidDialogWindow.xaml
+    /// Логика взаимодействия для AddStudentWindow.xaml
     /// </summary>
-    public partial class VoidDialogWindow : Window
+    public partial class AddStudentWindow : Window
     {
-        public VoidDialogWindow(Window owner, string caption = "< your text here >")
+        public AddStudentWindow(Window owner)
         {
             InitializeComponent();
-            this.Title = caption;
             this.Owner = owner;
         }
     }

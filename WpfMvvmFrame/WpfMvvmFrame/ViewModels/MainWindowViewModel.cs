@@ -4,84 +4,36 @@ using CommunityToolkit.Mvvm.Messaging;
 using CommunityToolkit.Mvvm.Messaging.Messages;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
-using WpfMvvmFrame.DialogWindows.VoidDialogWindow;
 using WpfMvvmFrame.Messages;
+using WpfMvvmFrame.Models;
 
 namespace WpfMvvmFrame.ViewModels
 {
-    public partial class MainWindowViewModel : ObservableObject, IRecipient<GreetMessage>, IRecipient<SimpleDialogMessage>
+    public partial class MainWindowViewModel : ObservableObject, IRecipient<NewStudentMessage>
     {
-        const string DECIMAL_NUMBER_VALIDATION_REGEX = @"^-?([0]{1}\.{1}[0-9]+|[1-9]{1}[0-9]*\.{1}[0-9]+|[0-9]+|0)$";
-
         [ObservableProperty]
-        string stringBinding = string.Empty;
-
-        [ObservableProperty]
-        decimal decimalBinding = 0.0M;
-
-        [ObservableProperty]
-        ulong maskedBinding;
-
-        string regexControlledBinding = string.Empty;
-        public string RegexControlledBinding
-        {
-            get => regexControlledBinding;
-            set
-            {
-                if (Regex.IsMatch(value, DECIMAL_NUMBER_VALIDATION_REGEX) || value == string.Empty)
-                    SetProperty(ref regexControlledBinding, value);
-            }
-        }
-
-        [ObservableProperty]
-        bool canClick = true;
+        ObservableCollection<Student> availableStudents = new ObservableCollection<Student>();
 
         [ICommand]
-        void ClearFields()
+        void AddStudent()
         {
-            StringBinding = string.Empty;
-            DecimalBinding = 0.0M;
-            MaskedBinding = 0;
-            RegexControlledBinding = string.Empty;
+            WeakReferenceMessenger.Default.Send(new NewStudentMessage(Application.Current.MainWindow, AvailableStudents));
         }
 
-        [ICommand]
-        void ChangeButtonCondition()
+        public void Receive(NewStudentMessage message)
         {
-            CanClick = !CanClick;
-        }
-
-        [ICommand]
-        void ShowGreeting()
-        {
-            WeakReferenceMessenger.Default.Send(new GreetMessage());
-        }
-
-        [ICommand]
-        void DemostrateChildWindow()
-        {
-            WeakReferenceMessenger.Default.Send(new SimpleDialogMessage(Application.Current.MainWindow, "Dialog window Demo"));
-        }
-
-        public void Receive(GreetMessage message)
-        {
-            MessageBox.Show("GreetMessage recieved!");
-        }
-
-        public void Receive(SimpleDialogMessage message)
-        {
-            MessageBox.Show("SimpleDialogMessage recieved!");
+            MessageBox.Show(message.OperationResult);
         }
 
         public MainWindowViewModel()
-        {
-            WeakReferenceMessenger.Default.Register<GreetMessage>(this);
-            WeakReferenceMessenger.Default.Register<SimpleDialogMessage>(this);
+        { 
+            WeakReferenceMessenger.Default.Register<NewStudentMessage>(this);
         }
     }
 }
